@@ -5,6 +5,7 @@ public class GroundDetection : MonoBehaviour {
 
 	public float centerOffset, legHeight, legLength;
 	public LayerMask groundMask;
+	public Transform frLegT, flLegT, blLegT, brLegT;
 	Vector3 frLeg, flLeg, blLeg, brLeg;
 
 	// Use this for initialization
@@ -13,10 +14,15 @@ public class GroundDetection : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		frLeg = new Vector3 (transform.position.x + centerOffset, legHeight, transform.position.z + centerOffset);
-		flLeg = new Vector3 (transform.position.x + -centerOffset, legHeight, transform.position.z + centerOffset);
-		blLeg = new Vector3 (transform.position.x + -centerOffset, legHeight, transform.position.z + -centerOffset);
-		brLeg = new Vector3 (transform.position.x + centerOffset, legHeight, transform.position.z +  -centerOffset);
+//		frLeg = new Vector3 (transform.position.x + centerOffset, legHeight, transform.position.z + centerOffset);
+//		flLeg = new Vector3 (transform.position.x + -centerOffset, legHeight, transform.position.z + centerOffset);
+//		blLeg = new Vector3 (transform.position.x + -centerOffset, legHeight, transform.position.z + -centerOffset);
+//		brLeg = new Vector3 (transform.position.x + centerOffset, legHeight, transform.position.z +  -centerOffset);
+		frLeg = frLegT.position;
+		flLeg = flLegT.position;
+		blLeg = blLegT.position;
+		brLeg = brLegT.position;
+
 		DrawRays ();
 		CastRay (frLeg);
 		CastRay (flLeg);
